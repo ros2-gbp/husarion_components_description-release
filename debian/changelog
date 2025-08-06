@@ -1,0 +1,13 @@
+ros-humble-husarion-components-description (0.0.2-1jammy) jammy; urgency=high
+
+  * Fix stereolabs zed origin (#7 <https://github.com/husarion/husarion_components_description/issues/7>)
+  * Zed add CAM05 and update ZED urdf (#5 <https://github.com/husarion/husarion_components_description/issues/5>)
+  * fix rplidar visual (#4 <https://github.com/husarion/husarion_components_description/issues/4>)
+  * Add visuals (#2 <https://github.com/husarion/husarion_components_description/issues/2>)
+  * Move code from ros_components_description (#1 <https://github.com/husarion/husarion_components_description/issues/1>)
+  * Initial commit
+  * Contributors: Dawid Kmak, Dominik Nowak, Rafal Gorecki
+
+ -- Husarion <support@husarion.com>  Tue, 05 Aug 2025 22:00:00 -0000
+
+
