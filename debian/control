@@ -1,0 +1,12 @@
+Source: ros-jazzy-husarion-components-description
+Section: misc
+Priority: optional
+Maintainer: Husarion <support@husarion.com>
+Build-Depends: debhelper (>= 9.0.0), python3-yaml <!nocheck>, ros-jazzy-ament-cmake, ros-jazzy-ament-cmake-pytest <!nocheck>, ros-jazzy-ament-index-python <!nocheck>, ros-jazzy-depthai-descriptions, ros-jazzy-realsense2-description, ros-jazzy-robotiq-description, ros-jazzy-ur-description, ros-jazzy-urdf, ros-jazzy-xacro, ros-jazzy-zed-msgs, ros-jazzy-ros-workspace
+Homepage: https://husarion.com
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-husarion-components-description
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jazzy-depthai-descriptions, ros-jazzy-realsense2-description, ros-jazzy-robotiq-description, ros-jazzy-ur-description, ros-jazzy-urdf, ros-jazzy-xacro, ros-jazzy-zed-msgs, ros-jazzy-ros-workspace
+Description: URDF descriptions of components offered with Husarion robots
