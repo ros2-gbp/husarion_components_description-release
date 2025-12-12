@@ -1,0 +1,31 @@
+ros-jazzy-husarion-components-description (0.1.0-1noble) noble; urgency=high
+
+  * Add tf_prefix arg and fix depthai reference frame for camera (#14 <https://github.com/husarion/husarion_components_description/issues/14>)
+  * Add meshes (#13 <https://github.com/husarion/husarion_components_description/issues/13>)
+    * Add Ouster mesh
+    * Add wibotic meshes and fixes
+    * Make wibotic station more universal (change root_link, edit height of elements)
+    * apriltag_height -> apriltag_mount_height
+  * Fixed teltonika antenna link (#12 <https://github.com/husarion/husarion_components_description/issues/12>)
+  * Replace / with _ in bridge node name (#11 <https://github.com/husarion/husarion_components_description/issues/11>
+  * Big clean up +  frame standarization (#9 <https://github.com/husarion/husarion_components_description/issues/9>)
+  * Fix default device_name
+  * Add missing lidar
+  * Fix ouster visual (#6 <https://github.com/husarion/husarion_components_description/issues/6>)
+  * Contributors: Dawid Kmak, Jakub Delicat, Rafal Gorecki, husarafal
+
+ -- Husarion <support@husarion.com>  Thu, 11 Dec 2025 23:00:00 -0000
+
+ros-jazzy-husarion-components-description (0.0.2-1noble) noble; urgency=high
+
+  * Fix stereolabs zed origin (#7 <https://github.com/husarion/husarion_components_description/issues/7>)
+  * Zed add CAM05 and update ZED urdf (#5 <https://github.com/husarion/husarion_components_description/issues/5>)
+  * fix rplidar visual (#4 <https://github.com/husarion/husarion_components_description/issues/4>)
+  * Add visuals (#2 <https://github.com/husarion/husarion_components_description/issues/2>)
+  * Move code from ros_components_description (#1 <https://github.com/husarion/husarion_components_description/issues/1>)
+  * Initial commit
+  * Contributors: Dawid Kmak, Dominik Nowak, Rafal Gorecki
+
+ -- Husarion <support@husarion.com>  Tue, 05 Aug 2025 22:00:00 -0000
+
+
