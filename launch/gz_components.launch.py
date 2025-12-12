@@ -37,26 +37,50 @@ def get_value(node: yaml.Node, key: str):
 
 
 def get_launch_description(name: str, package: str, namespace: str, component: yaml.Node):
-    device_namespace = get_value(component, "device_namespace")
+    component_name = get_value(component, "name")
     robot_namespace = namespace
+
+    # choose a default name
+    # these are also defined in husarion_components_description/urdf/*.xacro files
+    default_component_names = {
+        "intel_realsense_d435": "camera",
+        "kinova_6dof": "kinova",
+        "kinova_7dof": "kinova",
+        "luxonis_depthai": "oak",
+        "orbbec_astra": "camera",
+        # "ouster_os": "ouster",
+        # ^ removed for compatibility with hw driver
+        "robotiq": "robotiq",
+        # "slamtec_rplidar": "rplidar",
+        # ^ removed for compatibility with hw driver
+        "stereolabs_zed": "zed",
+        "teltonika": "gps",
+        "ur": "ur",
+        # "velodyne": "velodyne",
+        # ^ removed for compatibility with hw driver
+        "wibotic_station": "wibotic_station",
+    }
+    if component_name == "" and name in default_component_names:
+        component_name = default_component_names[name]
+
+    gz_bridge_name_prefix = component["type"] + "_gz_bridge"
+    component_name_gz_prefix = component_name
+    if component_name_gz_prefix != "":
+        gz_bridge_name_prefix = component_name_gz_prefix + "_" + gz_bridge_name_prefix
+
+    gz_bridge_name_prefix = gz_bridge_name_prefix.replace("/", "_")
 
     if "ur" not in name and "kinova" not in name and "robotiq" not in name:
         if len(robot_namespace) and robot_namespace[0] != "/":
             robot_namespace = "/" + robot_namespace
-        if len(device_namespace) and device_namespace[0] != "/":
-            device_namespace = "/" + device_namespace
-
-    gz_bridge_name_prefix = component["type"] + "_gz_bridge"
-    device_namespace_prefix = get_value(component, "device_namespace")
-
-    if device_namespace_prefix != "":
-        gz_bridge_name_prefix = device_namespace_prefix + "_" + gz_bridge_name_prefix
+        if len(component_name) and component_name[0] != "/":
+            component_name = "/" + component_name
 
     return IncludeLaunchDescription(
         PythonLaunchDescriptionSource([package, "/launch/gz_", name, ".launch.py"]),
         launch_arguments={
             "robot_namespace": robot_namespace,
-            "device_namespace": device_namespace,
+            "component_name": component_name,
             "gz_bridge_name": gz_bridge_name_prefix,
         }.items(),
     )
@@ -70,6 +94,9 @@ def get_launch_descriptions_from_yaml_node(
     components_types_with_names = {
         "ANT02": "teltonika",
         "LDR01": "slamtec_rplidar",
+        "LDR02": "slamtec_rplidar",
+        "LDR03": "slamtec_rplidar",
+        "LDR04": "slamtec_rplidar",
         "LDR06": "slamtec_rplidar",
         "LDR10": "ouster_os",
         "LDR11": "ouster_os",
